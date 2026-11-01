@@ -495,3 +495,4 @@ h1,h2{overflow-wrap:break-word;hyphens:manual}
 @media (max-width:640px){.badge30{width:92px;font-size:.5rem;letter-spacing:.06em;top:calc(108px + env(safe-area-inset-top,0px))}.badge30 b{font-size:1.9rem}}
 .choice>span{overflow-wrap:anywhere;hyphens:auto}
 @media (max-width:420px){.choice>span{font-size:.95rem}}
+.film .still.anim{animation:none;transform:none}

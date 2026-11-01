@@ -11,6 +11,13 @@
     vid.addEventListener('playing', function(){ vid.classList.add('on'); });
     /* noen mobiler (f.eks. iPhone i strømsparing) stopper autoplay: prøv igjen ved første berøring eller scroll */
     var kick = function(){ if (vid.paused && !mks.reduce) play(); };
+    /* reserve: får vi ikke spilt filmen, bytt stillbildet med en animert versjon som alltid går */
+    var still = document.querySelector('.film .still');
+    setTimeout(function(){
+      if (!mks.reduce && still && (vid.paused || vid.readyState < 3) && !vid.classList.contains('on')){
+        var a = new Image(); a.onload = function(){ still.src = a.src; still.classList.add('anim'); }; a.src = 'img/reel-anim.webp';
+      }
+    }, 1500);
     ['touchstart','pointerdown','scroll','keydown'].forEach(function(ev){ window.addEventListener(ev, kick, {passive:true, once:true}); });
   }
 
