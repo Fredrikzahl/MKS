@@ -23,7 +23,6 @@ def header(active, home):
   <div class="right">
     <nav class="nav" id="nav" aria-label="Meny">{links}{cta}</nav>
     <button class="lang" type="button">EN</button>
-    <button class="burger" type="button" aria-controls="nav" aria-expanded="false">{L("Meny", "Menu")}</button>
   </div>
 </header>'''
 

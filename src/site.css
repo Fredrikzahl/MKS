@@ -371,3 +371,48 @@ footer{padding-block:60px 40px;background:#070d17;color:var(--frost);font-size:.
 .film .c1 h1,.film .c1 .lede{text-shadow:0 2px 18px rgba(5,9,15,.55)}
 @media (max-width:700px){.film .hud{display:none}.film .shade{background:linear-gradient(180deg,rgba(5,9,15,.55) 0%,rgba(5,9,15,0) 22%,rgba(5,9,15,.45) 42%,rgba(5,9,15,.94) 100%)}}
 @media (max-width:520px){.crew{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.person h3{font-size:1.15rem}.person .info{padding:12px 12px 14px}.person p{font-size:.85rem}.person .tags{display:none}}
+
+/* mobil: sidene som knapper i stedet for meny */
+@media (max-width:960px){
+  .top{flex-wrap:wrap;row-gap:10px;padding-top:10px;padding-bottom:10px}
+  .top .right{display:contents}
+  .top .lang{order:2;margin-left:auto}
+  .top .brand{order:1}
+  .top .nav,.top .nav.open{order:3;position:static;display:flex;flex-direction:row;flex-wrap:nowrap;align-items:center;gap:6px;width:100%;padding:0;background:none;border:0;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .top .nav::-webkit-scrollbar{display:none}
+  .top .nav a{flex:none;font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--snow);border:1px solid var(--night-3);border-radius:2px;padding:7px 9px;box-shadow:none;background:color-mix(in srgb,var(--night) 55%,transparent)}
+  .top .nav a[aria-current="page"]{border-color:var(--beacon);color:var(--beacon);box-shadow:none}
+  .top .nav a.btn,.top .nav .btn{display:none}
+  .top{background:color-mix(in srgb,var(--night) 92%,transparent);backdrop-filter:blur(8px);border-bottom-color:var(--night-3)}
+  .badge30{top:calc(124px + env(safe-area-inset-top,0px))}
+  .page-hero{padding-top:calc(170px + env(safe-area-inset-top,0px))}
+}
+@media (max-width:520px){
+  .top .nav{gap:5px}
+  .top .nav a{flex:1 1 auto;text-align:center;font-size:.63rem;letter-spacing:.05em;padding:7px 5px}
+}
+@media (max-width:370px){.top .nav a{font-size:.58rem;letter-spacing:.02em;padding:7px 3px}}
+.svc-photo,.fleet-hero,.case{overflow:hidden}html,body{overflow-x:clip}
+/* klikkbare bilder: hele bildet er lenke, egne knapper for hvert mål */
+.sc{cursor:pointer}
+.sc img{transition:transform .7s cubic-bezier(.2,.7,.2,1),filter .4s}
+.sc:hover img{filter:brightness(1.12)}
+.sc .gos{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.sc .go{position:relative;z-index:2;font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;color:var(--snow);border:1px solid rgba(243,241,234,.4);background:rgba(8,14,26,.55);padding:8px 11px;border-radius:2px}
+.sc .go.main::after{content:"";position:absolute;inset:-2000px;z-index:-1}
+.sc .go.main{background:var(--beacon);border-color:var(--beacon);color:#111}
+.sc .go:hover{border-color:var(--snow)}
+.sc .go.main:hover{background:#ffd23f}
+.sc .go+.go{z-index:3}
+/* bilder + løfter slått sammen til klikkbare kort */
+.showcase{background:var(--night)}
+.sc{display:flex;flex-direction:column;background:var(--night-2,#101a2b)}
+.sc-img{position:relative;overflow:hidden}
+.sc-img img{width:100%;aspect-ratio:16/10;object-fit:cover;display:block}
+.sc-img b{position:absolute;left:0;right:0;bottom:0;padding:40px clamp(16px,2vw,24px) 14px;background:linear-gradient(transparent,rgba(8,14,26,.85));font-family:var(--display);font-weight:900;text-transform:uppercase;font-size:clamp(1.5rem,2.6vw,2.4rem);line-height:1;color:var(--snow)}
+.sc-body{display:flex;flex-direction:column;gap:8px;padding:clamp(16px,2vw,24px);flex:1}
+.sc-body h3{color:var(--beacon);font-size:clamp(1.4rem,2vw,1.9rem)}
+.sc-body p{color:var(--frost);line-height:1.45;margin:0}
+.sc .gos{margin-top:auto;padding-top:8px}
+.sc:hover .sc-img img{transform:scale(1.04);filter:brightness(1.1)}
+@media (max-width:700px){.sc-img img{aspect-ratio:16/10}}
