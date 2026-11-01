@@ -436,3 +436,13 @@ footer{padding-block:60px 40px;background:#070d17;color:var(--frost);font-size:.
 .portrait img[src*="morten"]{transform-origin:40% 4%}
 .tags>span>span{border:0;padding:0}
 .tags{align-self:start}
+/* skjemasteg: nummererte steg, ikke en fremdriftslinje */
+.steps{gap:6px;align-items:center}
+.steps li{flex:0 1 auto;display:flex;align-items:center;gap:8px;border:0;padding:0;color:#6b7891;font-size:.68rem;white-space:nowrap}
+.steps li+li::before{content:"";width:clamp(10px,4vw,28px);height:1px;background:#c5cbd5;margin-right:2px}
+.steps li em{font-style:normal;flex:none;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;border:1.5px solid #c5cbd5;color:#6b7891;font-size:.72rem}
+.steps li.on{color:#0C1626}
+.steps li.on em{background:var(--beacon);border-color:var(--beacon);color:#111}
+.steps li.done{color:#0C1626}
+.steps li.done em{background:#0C1626;border-color:#0C1626;color:#fff}
+@media (max-width:420px){.steps li{font-size:.6rem;letter-spacing:.04em;gap:5px}.steps li+li::before{width:8px}}
