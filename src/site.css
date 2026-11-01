@@ -461,3 +461,13 @@ footer{padding-block:60px 40px;background:#070d17;color:var(--frost);font-size:.
 :focus-visible{outline:2px solid var(--beacon);outline-offset:3px}
 .two .sec-head h2{font-size:clamp(2.2rem,4.2vw,4rem);overflow-wrap:anywhere}
 h1,h2{overflow-wrap:break-word;hyphens:manual}
+/* digitale verktøy */
+.svc-side{display:grid;gap:clamp(24px,3vw,36px);align-content:start;min-width:0}
+.digital{display:grid;gap:8px;padding:clamp(18px,2vw,26px);background:var(--night-2);border:1px solid var(--night-3)}
+.digital .eyebrow{margin:0}
+.digital h3{font-size:clamp(1.6rem,2.2vw,2rem)}
+.digital p{color:var(--frost);line-height:1.5}
+.phones{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:10px}
+.phones figure{margin:0}
+.phones img{width:100%;height:auto;aspect-ratio:560/1101;object-fit:cover;object-position:top;border-radius:18px;border:3px solid #2a3a55;box-shadow:0 10px 30px rgba(0,0,0,.35);display:block}
+.phones figcaption{text-align:center}
