@@ -1,6 +1,11 @@
 (function(){
   var root = document.documentElement;
 
+  /* ---------- ny side starter alltid på toppen (unntatt tilbake-knappen og #lenker) ---------- */
+  var nav = (performance.getEntriesByType && performance.getEntriesByType('navigation')[0]) || {};
+  var toTop = !location.hash && nav.type !== 'back_forward';
+  if (toTop){ try { history.scrollRestoration = 'manual'; } catch(e){} window.scrollTo(0, 0); }
+
   /* ---------- språk ---------- */
   var q = new URLSearchParams(location.search), lang = q.get('lang');
   if (!lang){ try { lang = localStorage.getItem('mks-lang'); } catch(e){} }
@@ -135,6 +140,7 @@
       lenis.on('scroll', ScrollTrigger.update);
       gsap.ticker.add(function(tt){ lenis.raf(tt*1000); }); gsap.ticker.lagSmoothing(0);
       window.mks.lenis = lenis;
+      if (toTop) lenis.scrollTo(0, {immediate:true, force:true});
       document.querySelectorAll('a[href^="#"]').forEach(function(a){ a.addEventListener('click', function(e){ var id = a.getAttribute('href'); var el = id.length > 1 && document.querySelector(id); if (!el) return; e.preventDefault(); lenis.scrollTo(el, {offset: id === '#film' ? 0 : -70}); }); });
     }
   }
