@@ -459,3 +459,8 @@ footer{padding-block:60px 40px;background:#070d17;color:var(--frost);font-size:.
 .svc-list li.summer-li{grid-template-columns:minmax(0,1fr) clamp(96px,22%,150px);gap:16px;align-items:center}
 .summer-li img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block;border:1px solid var(--night-3)}
 .summer-li img{height:auto!important}
+.svc-list li.summer-li{grid-template-columns:minmax(0,1fr) clamp(130px,36%,220px)}
+.summer-li .zoom{position:relative;display:block;padding:0;border:0;background:none;cursor:zoom-in}
+.summer-li .zoom img{transition:filter .3s}
+.summer-li .zoom:hover img{filter:brightness(1.1)}
+.summer-li .zi{position:absolute;right:6px;bottom:6px;width:28px;height:28px;display:grid;place-items:center;background:rgba(8,14,26,.75);color:var(--snow);font-size:15px;border-radius:2px}

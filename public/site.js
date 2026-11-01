@@ -87,8 +87,8 @@
   var lb = document.getElementById('lb');
   if (lb){
     var lbImg = lb.querySelector('img');
-    document.querySelectorAll('.collage button').forEach(function(b){
-      b.addEventListener('click', function(){ var i = b.querySelector('img'); lbImg.src = i.src; lbImg.alt = i.alt; lb.showModal(); });
+    document.querySelectorAll('.collage button, button.zoom').forEach(function(b){
+      b.addEventListener('click', function(){ var i = b.querySelector('img'); lbImg.src = b.dataset.full || i.src; lbImg.alt = i.alt; lb.showModal(); });
     });
     lb.addEventListener('click', function(e){ if (e.target === lb || e.target.closest('.x')) lb.close(); });
   }
