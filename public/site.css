@@ -425,3 +425,14 @@ footer{padding-block:60px 40px;background:#070d17;color:var(--frost);font-size:.
 .sc .gos{margin-top:auto;padding-top:8px}
 .sc:hover .sc-img img{transform:scale(1.04);filter:brightness(1.1)}
 @media (max-width:700px){.sc-img img{aspect-ratio:16/10}}
+/* mobilpuss */
+@media (max-width:960px){.top .nav a{padding-top:10px;padding-bottom:10px}.top .lang{padding:10px 11px}}
+@media (max-width:640px){
+  .collage{columns:2;column-gap:6px}
+  .collage button{margin-bottom:6px}
+  .badge30{width:66px;top:calc(110px + env(safe-area-inset-top,0px));font-size:.42rem;letter-spacing:.08em}
+  .badge30 b,.badge30 strong{font-size:1.5rem}
+  .big30{font-size:9rem;opacity:.22;top:110px}
+  .page-hero{padding-top:calc(150px + env(safe-area-inset-top,0px))}
+}
+@media (max-width:640px){.badge30{width:78px;font-size:.46rem}.badge30 small{display:none}}
