@@ -483,3 +483,15 @@ h1,h2{overflow-wrap:break-word;hyphens:manual}
 .dig-img{position:relative;display:block;padding:0;border:0;background:none;cursor:zoom-in;margin-top:10px;width:100%}
 .dig-img img{width:100%;height:auto;aspect-ratio:21/11;object-fit:cover;display:block;border:1px solid var(--night-3)}
 .dig-img .zi,.summer-li .zi{position:absolute;right:8px;bottom:8px;width:28px;height:28px;display:grid;place-items:center;background:rgba(8,14,26,.75);color:var(--snow);font-size:15px;border-radius:2px}
+/* stillbilde bak filmen: synlig og i rolig bevegelse selv om mobilen stopper autoplay */
+.film .still{position:absolute;inset:0;width:100%;height:100%;max-width:none;object-fit:cover;z-index:1;transform-origin:60% 45%;animation:kb 22s ease-in-out infinite alternate}
+@keyframes kb{from{transform:scale(1.02) translate(0,0)}to{transform:scale(1.14) translate(-2%,-1.5%)}}
+@media (prefers-reduced-motion:reduce){.film .still{animation:none}}
+/* digitale verktøy som egen rad under tjenestene */
+.digital{margin-top:clamp(32px,4vw,56px);display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(20px,3vw,44px);align-items:center;padding:clamp(18px,2.4vw,32px)}
+.dig-text{display:grid;gap:10px;align-content:center}
+.digital .dig-img{margin-top:0}
+@media (max-width:860px){.digital{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:640px){.badge30{width:92px;font-size:.5rem;letter-spacing:.06em;top:calc(108px + env(safe-area-inset-top,0px))}.badge30 b{font-size:1.9rem}}
+.choice>span{overflow-wrap:anywhere;hyphens:auto}
+@media (max-width:420px){.choice>span{font-size:.95rem}}

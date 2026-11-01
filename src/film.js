@@ -9,6 +9,9 @@
     if (mks.reduce){ vid.removeAttribute('autoplay'); vid.pause(); }
     else { play(); document.addEventListener('visibilitychange', function(){ if (!document.hidden) play(); }); }
     vid.addEventListener('playing', function(){ vid.classList.add('on'); });
+    /* noen mobiler (f.eks. iPhone i strømsparing) stopper autoplay: prøv igjen ved første berøring eller scroll */
+    var kick = function(){ if (vid.paused && !mks.reduce) play(); };
+    ['touchstart','pointerdown','scroll','keydown'].forEach(function(ev){ window.addEventListener(ev, kick, {passive:true, once:true}); });
   }
 
   if (mks.reduce || !window.gsap){
