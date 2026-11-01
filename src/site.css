@@ -471,3 +471,6 @@ h1,h2{overflow-wrap:break-word;hyphens:manual}
 .phones figure{margin:0}
 .phones img{width:100%;height:auto;aspect-ratio:560/1101;object-fit:cover;object-position:top;border-radius:18px;border:3px solid #2a3a55;box-shadow:0 10px 30px rgba(0,0,0,.35);display:block}
 .phones figcaption{text-align:center}
+.dig-img{position:relative;display:block;padding:0;border:0;background:none;cursor:zoom-in;margin-top:10px;width:100%}
+.dig-img img{width:100%;height:auto;aspect-ratio:21/11;object-fit:cover;display:block;border:1px solid var(--night-3)}
+.dig-img .zi,.summer-li .zi{position:absolute;right:8px;bottom:8px;width:28px;height:28px;display:grid;place-items:center;background:rgba(8,14,26,.75);color:var(--snow);font-size:15px;border-radius:2px}
