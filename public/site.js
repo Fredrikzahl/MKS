@@ -96,22 +96,17 @@
   /* ---------- referanse-tidslinje ---------- */
   var tl = document.getElementById('tl');
   if (tl){
-    var Y0 = 1975, Y1 = 2026, NOW = 2026;
+    var Y0 = 1997, Y1 = 2026, NOW = 2026;
+    /* bare tidligere kunder vises med navn; aktive kunder nevnes samlet */
     var refs = [
-      {n:'7 borettslag på Håpet', ne:'7 housing co-ops at Håpet', s:1975, fam:1997},
-      {n:'Sameiet Bo i Nord', s:1995, lbl:['1990-tallet – i dag','1990s – today']},
       {n:'Bohus', r:'Pål J., Håpet Invest', s:2000, e:2025},
       {n:'Biltema', r:'Pål J., Håpet Invest', s:2000, e:2025},
-      {n:'Widerøe Ground Handling', r:'Helge R.', s:2017, famFrom:1975},
-      {n:'Drytech', r:'Trond H.', s:2018},
       {n:'UiT Norges arktiske universitet', ne:'UiT The Arctic University of Norway', r:'Frode J.', s:2018, e:2022},
-      {n:'Teknisk Bureau (Mercedes)', r:'Anita J.', s:2019, e:2024},
-      {n:'Politihuset i Tromsø', ne:'Tromsø Police Station', s:2019, e:2026},
-      {n:'Optimera', r:'Frode B.', s:2020}
+      {n:'Teknisk Bureau (Mercedes)', r:'Anita J.', s:2019, e:2024}
     ];
     var pct = function(y){ return ((y - Y0) / (Y1 - Y0) * 100).toFixed(2) + '%'; };
     var ticks = document.getElementById('ticks');
-    [1975,1985,1997,2007,2017,2026].forEach(function(y){ var s = document.createElement('span'); s.style.left = pct(y); s.textContent = y; ticks.appendChild(s); });
+    [1997,2004,2011,2018,2026].forEach(function(y){ var s = document.createElement('span'); s.style.left = pct(y); s.textContent = y; ticks.appendChild(s); });
     refs.forEach(function(r){
       var row = document.createElement('div'); row.className = 'trow'; row.setAttribute('role','row');
       var yn = r.lbl ? r.lbl[0] : (r.e ? r.s + '–' + r.e : r.s + ' – i dag');

@@ -1,21 +1,16 @@
 <!-- title:Kurt Sandnes AS | desc:Maskinentreprenør Kurt Sandnes AS. Brøyting og vintervedlikehold for borettslag, bedrifter og offentlige foretak i Tromsø siden 1997. | home:1 -->
-<section class="film" id="film" aria-label="Åpningsfilm">
-  <div class="scene s1"><img src="img/film-1.webp" alt="Volvo L70H med plog og arbeidslys i snøvær om natten" data-alt-en="Volvo L70H with plough and work lights in snowfall at night"></div>
-  <canvas id="reel" data-frames="301" aria-hidden="true"></canvas>
+<section class="film" id="film" aria-label="Forside">
+  <video id="reel" poster="img/film-1.webp" autoplay muted loop playsinline preload="auto" aria-hidden="true"><source src="img/reel.mp4" type="video/mp4"><source src="img/reel.webm" type="video/webm"></video>
   <div class="shade" aria-hidden="true"></div>
   <canvas id="snow" aria-hidden="true"></canvas>
   <div class="grain" aria-hidden="true"></div>
   <div class="badge30"><div><b>30</b>{{L("vintrer for<br>kundene", "winters for<br>customers")}}<small>1997–2027</small></div></div>
 
   <div class="cap c1">
-    <p class="eyebrow">Maskinentreprenør Kurt Sandnes AS</p>
+    <p class="eyebrow">{{L("Vintervedlikehold · Tromsø", "Winter maintenance · Tromsø")}}</p>
     <h1><span class="no"><span class="split">Når snøen kommer,</span><br><span class="split y">er vi allerede der.</span></span><span class="en"><span class="split">When the snow comes,</span><br><span class="split y">we are already there.</span></span></h1>
-  </div>
-  <div class="cap c2"><h2>{{L("Lysene kommer gjennom fokket.", "Lights through the blizzard.")}}</h2><p>{{L("Mens byen sover, rydder vi for borettslag, bedrifter og offentlige anlegg.", "While the city sleeps, we clear snow for housing co-ops, businesses and public sites.")}}</p></div>
-  <div class="cap c3"><h2>{{L("Samme utsikt i 30 vintrer.", "The same view for 30 winters.")}}</h2></div>
-  <div class="cap c4"><h2>{{L("Snøen skal dit vi har avtalt.", "The snow goes where we agreed.")}}</h2><p>{{L("Vi går alltid befaring først.", "We always start with a site visit.")}}</p></div>
-  <div class="cap c5">
-    <h2>{{L("Ferdig brøytet før byen våkner.", "Cleared before the city wakes up.")}}</h2>
+    <p class="lede">{{L("For borettslag, bedrifter og offentlige anlegg. Tre toppmoderne Volvo L70H2 og faste folk, natt og dag.", "For housing co-ops, businesses and public sites. Three state-of-the-art Volvo L70H2 and a steady crew, night and day.")}}</p>
+    <ul class="chips"><li>{{L("Brøyting", "Snow clearing")}}</li><li>{{L("Strøing", "Gritting")}}</li><li>{{L("Bortkjøring av snø", "Snow removal")}}</li><li>{{L("Beredskap hele sesongen", "On call all season")}}</li></ul>
     <div class="ctas"><a class="btn" href="#kontakt">{{L("Be om befaring", "Request a site visit")}}</a><a class="btn ghost" href="tel:+4790555989">{{L("Ring 905 55 989", "Call 905 55 989")}}</a><a class="btn ghost" href="mailto:post@kurtsandnes.no">{{L("Send oss en e-post", "Email us")}}</a></div>
   </div>
 
@@ -28,7 +23,7 @@
   </div>
 </section>
 
-<section class="showcase" aria-label="{{L("Bilder fra vinterdriften", "Photos from the winter work")}}">
+<section class="showcase" aria-label="Bilder fra vinterdriften">
   <figure class="sc wide"><img src="img/hs-snobroyting_natt.webp" alt="Volvo hjullaster med U-plog brøyter i tett snøvær om natten" data-alt-en="Volvo wheel loader with U-plough clearing snow in heavy snowfall at night" width="2000" height="1125" loading="lazy"><figcaption><b>{{L("Når det laver ned", "When it pours down")}}</b><i>{{L("Ute i all slags vær, døgnet rundt.", "Out in all weather, around the clock.")}}</i></figcaption></figure>
   <figure class="sc"><img src="img/hs-volvo_hjullastere.webp" alt="To Volvo L70H2 hjullastere med plog foran Volvo Maskin Service" data-alt-en="Two Volvo L70H2 wheel loaders with ploughs outside Volvo Maskin Service" width="2000" height="1125" loading="lazy"><figcaption><b>{{L("Toppmoderne park", "A modern fleet")}}</b><i>{{L("Volvo L70H2, Steg V.", "Volvo L70H2, Stage V.")}}</i></figcaption></figure>
   <figure class="sc"><img src="img/hs-snobroyting_dag.webp" alt="Hjullaster med plog rydder snø på en parkeringsplass på dagtid" data-alt-en="Wheel loader with plough clearing a car park in daylight" width="2000" height="1125" loading="lazy"><figcaption><b>{{L("Dag som natt", "Day and night")}}</b><i>{{L("Samme standard hver gang.", "The same standard every time.")}}</i></figcaption></figure>
@@ -56,12 +51,12 @@
           <li><h3>{{L("Strøing", "Gritting")}}</h3><p>{{L("Trygg ferdsel når det fryser på.", "Safe footing when it freezes.")}}</p></li>
           <li><h3>{{L("Bortkjøring av snø", "Snow removal")}}</h3><p>{{L("Når det ikke er mer plass, kjører vi snøen bort.", "When there is no more room, we haul the snow away.")}}</p></li>
           <li><h3>{{L("Beredskap hele sesongen", "On call all season")}}</h3><p>{{L("Vi rykker ut når snøen kommer, uansett tid.", "We turn out when the snow comes, at any hour.")}}</p></li>
+          <li><h3>{{L("Sommerarbeid", "Summer work")}}</h3><p>{{L("Drenering, planering og små tomter ved forespørsel.", "Drainage, levelling and small plots on request.")}}</p></li>
         </ul>
         <div class="befaring">
           <div class="ico" aria-hidden="true">1</div>
           <div><h3>{{L("Alltid befaring først", "Always a site visit first")}}</h3><p>{{L("Vi ser på området sammen med dere og lager en tydelig avtale.", "We walk the site with you and make a clear agreement.")}}</p></div>
         </div>
-        <p class="summer">{{L("<b>Sommerarbeid?</b> Drenering, planering og små tomter ved forespørsel.", "<b>Summer work?</b> Drainage, levelling and small plots on request.")}}</p>
       </div>
       <figure class="svc-photo"><img src="img/m-l70h-plog.webp" alt="Volvo L70H2 med plog på en snødekt plass" data-alt-en="Volvo L70H2 with plough on a snowy yard" loading="lazy"><figcaption>Volvo L70H2 · Tromsø</figcaption></figure>
     </div>
@@ -72,8 +67,8 @@
   <div class="wrap">
     <div class="doors">
       <a class="door" href="om-oss.html"><img src="img/hist-ljungby.webp" alt="" loading="lazy"><span class="t"><span class="go">{{L("Om oss", "About")}}</span><h3>{{L("30 vintrer", "30 winters")}}</h3><p>{{L("Historien og folkene bak.", "The story and the people.")}}</p></span></a>
-      <a class="door" href="maskinpark.html"><img src="img/m-l70h-side.webp" alt="" loading="lazy"><span class="t"><span class="go">{{L("Maskinpark", "Fleet")}}</span><h3>Volvo L70H</h3><p>{{L("Topp moderne og godt utstyrt.", "Modern and well equipped.")}}</p></span></a>
-      <a class="door" href="referanser.html"><img src="img/ref-uit.webp" alt="" loading="lazy"><span class="t"><span class="go">{{L("Referanser", "References")}}</span><h3>{{L("Lange kundeforhold", "Long relationships")}}</h3><p>{{L("Widerøe, UiT, Optimera og flere.", "Widerøe, UiT, Optimera and more.")}}</p></span></a>
+      <a class="door" href="maskinpark.html"><img src="img/m-l70h-side.webp" alt="" loading="lazy"><span class="t"><span class="go">{{L("Maskinpark", "Fleet")}}</span><h3>Volvo L70H2</h3><p>{{L("Toppmoderne og godt utstyrt.", "Modern and well equipped.")}}</p></span></a>
+      <a class="door" href="referanser.html"><img src="img/ref-uit.webp" alt="" loading="lazy"><span class="t"><span class="go">{{L("Referanser", "References")}}</span><h3>{{L("Lange kundeforhold", "Long relationships")}}</h3><p>{{L("Aktive avtaler og tidligere oppdrag.", "Active contracts and past work.")}}</p></span></a>
       <a class="door" href="galleri.html"><img src="img/tj-natt.webp" alt="" loading="lazy"><span class="t"><span class="go">{{L("Galleri", "Gallery")}}</span><h3>{{L("Bildekollasje", "Photo collage")}}</h3><p>{{L("Fra 30 år med vinterdrift.", "From 30 years of winter work.")}}</p></span></a>
     </div>
   </div>
