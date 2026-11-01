@@ -1,6 +1,6 @@
 (function(){
   var mks = window.mks || {};
-  var vid = document.getElementById('reel');
+  var vid = document.getElementById('reel'), filmEl = document.getElementById('film');
 
   /* video i bakgrunnen: spiller av seg selv, ingen scrolling nødvendig */
   if (vid){
@@ -10,14 +10,21 @@
     else { play(); document.addEventListener('visibilitychange', function(){ if (!document.hidden) play(); }); }
     vid.addEventListener('playing', function(){ vid.classList.add('on'); });
     /* noen mobiler (f.eks. iPhone i strømsparing) stopper autoplay: prøv igjen ved første berøring eller scroll */
-    var kick = function(){ if (vid.paused && !mks.reduce) play(); };
+    var kick = function(){ if (vid.paused && !mks.reduce && window.scrollY < filmEl.offsetHeight) play(); };
     /* reserve: får vi ikke spilt filmen, bytt stillbildet med en animert versjon som alltid går */
     var still = document.querySelector('.film .still');
-    setTimeout(function(){
-      if (!mks.reduce && still && (vid.paused || vid.readyState < 3) && !vid.classList.contains('on')){
-        var a = new Image(); a.onload = function(){ still.src = a.src; still.classList.add('anim'); }; a.src = 'img/reel-anim.webp';
-      }
-    }, 1500);
+    var t0 = -1, anim = false;
+    function fallback(){
+      if (anim || mks.reduce || !still) return; anim = true;
+      var a = new Image(); a.onload = function(){ still.src = a.src; still.classList.add('anim'); vid.classList.remove('on'); }; a.src = 'img/reel-anim.webp';
+    }
+    /* sjekk at filmen faktisk går fremover; står den stille mens toppen vises, bruk animert reserve */
+    [1500, 3500].forEach(function(ms){ setTimeout(function(){
+      if (window.scrollY > filmEl.offsetHeight) return;
+      if (vid.paused || vid.readyState < 3 || vid.currentTime === t0) fallback();
+      t0 = vid.currentTime;
+    }, ms); });
+    vid.addEventListener('playing', function(){ if (anim){ still.classList.remove('anim'); } });
     ['touchstart','pointerdown','scroll','keydown'].forEach(function(ev){ window.addEventListener(ev, kick, {passive:true, once:true}); });
   }
 
@@ -44,7 +51,9 @@
     requestAnimationFrame(draw);
   }
   requestAnimationFrame(draw);
-  if ('IntersectionObserver' in window) new IntersectionObserver(function(e){ visible = e[0].isIntersecting; if (vid){ if (visible) play(); else vid.pause(); } }).observe(document.getElementById('film'));
+  /* pause bare når man faktisk har scrollet forbi toppen (ikke stol på synlighetsmåling i innebygde vinduer) */
+  function vis(){ var nv = window.scrollY < filmEl.offsetHeight; if (nv !== visible){ visible = nv; if (vid){ if (visible) play(); else vid.pause(); } } }
+  window.addEventListener('scroll', vis, {passive:true}); if (window.mks.lenis) window.mks.lenis.on('scroll', vis);
 
   /* tittel: tegn for tegn */
   document.querySelectorAll('.split').forEach(function(el){
