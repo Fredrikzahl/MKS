@@ -427,3 +427,12 @@ footer{padding-block:60px 40px;background:#070d17;color:var(--frost);font-size:.
   .page-hero{padding-top:calc(150px + env(safe-area-inset-top,0px))}
 }
 @media (max-width:640px){.badge30{width:78px;font-size:.46rem}.badge30 small{display:none}}
+/* mannskap: navn på linje, Morten litt nærmere */
+.person .info{grid-template-rows:auto auto auto 1fr}
+.person h3{min-height:2.1em;display:flex;align-items:flex-end}
+.person .role{min-height:2.6em}
+.portrait img[src*="morten"]{transform:scale(1.35);transform-origin:42% 22%}
+@media (max-width:520px){.person h3{min-height:2.2em}.person .role{min-height:3.9em}}
+.portrait img[src*="morten"]{transform-origin:40% 4%}
+.tags>span>span{border:0;padding:0}
+.tags{align-self:start}
