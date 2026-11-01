@@ -446,3 +446,7 @@ footer{padding-block:60px 40px;background:#070d17;color:var(--frost);font-size:.
 .steps li.done{color:#0C1626}
 .steps li.done em{background:#0C1626;border-color:#0C1626;color:#fff}
 @media (max-width:420px){.steps li{font-size:.6rem;letter-spacing:.04em;gap:5px}.steps li+li::before{width:8px}}
+/* sommerarbeid med bilde av minigraveren */
+.svc-list li.summer-li{grid-template-columns:minmax(0,1fr) clamp(96px,22%,150px);gap:16px;align-items:center}
+.summer-li img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block;border:1px solid var(--night-3)}
+.summer-li img{height:auto!important}
