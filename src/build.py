@@ -43,7 +43,7 @@ def mcta(home):
     return f'<div class="mcta"><a class="btn" href="{k}">{L("Be om befaring", "Site visit")}</a><a class="btn ghost" href="tel:+4790555989">{L("Ring Kurt", "Call Kurt")}</a></div>'
 
 def cta_band():
-    return f'''<section class="band alt"><div class="wrap sec-head" style="margin:0">
+    return f'''<section class="band alt"><div class="wrap sec-head" style="margin-block:0">
   <p class="eyebrow">{L("Kontakt", "Contact")}</p>
   <h2>{L("Klar for vinteren?", "Ready for winter?")}</h2>
   <p class="lede">{L("Fortell oss hva du trenger, så avtaler vi en befaring.", "Tell us what you need and we will arrange a site visit.")}</p>
@@ -70,7 +70,7 @@ def page(name):
             w, h = subprocess.check_output(['identify', '-format', '%w %h', os.path.join(gdir, n)]).decode().split()
             items.append(f'<button type="button" aria-label="Vis større"><img src="img/g/{n}" alt="Fra vinterdriften" data-alt-en="From the winter work" width="{w}" height="{h}" loading="lazy"></button>')
         body = body.replace('{{GALLERY}}', ''.join(items))
-    return title, desc, home, header(name, home) + '\n<main>\n' + body + '\n</main>\n' + FOOTER + '\n' + mcta(home)
+    return title, desc, home, header(name, home) + '\n<main id="main">\n' + body + '\n</main>\n' + FOOTER + '\n' + mcta(home)
 
 def fonts_css():
     faces = [('Big Shoulders Display', 'big-shoulders-display', [('600','normal'),('800','normal'),('900','normal')]),
@@ -116,13 +116,18 @@ def build(target):
             head = GFONTS + f'<style>{css}</style>'
             scripts += f'<script>{sitejs}</script>' + (f'<script>{filmjs}</script>' if home else '')
         cls = 'home' if home else 'sub'
-        meta = f'<title>{title}</title><meta name="description" content="{desc}"><meta name="claude:viewport-fit-sides" content="cover"><meta name="theme-color" content="#0C1626"><meta property="og:title" content="{title}"><meta property="og:description" content="{desc}"><meta property="og:image" content="img/film-5.webp">'
+        meta = f'<title>{title}</title><meta name="description" content="{desc}"><meta name="claude:viewport-fit-sides" content="cover"><meta name="theme-color" content="#0C1626"><meta property="og:title" content="{title}"><meta property="og:description" content="{desc}"><meta property="og:image" content="img/og.jpg"><meta property="og:type" content="website"><meta property="og:locale" content="nb_NO"><meta name="twitter:card" content="summary_large_image">'
         # forhåndsvisningen (art) får hjem-siden uten eget dokument-skall
         if target == 'art' and home:
             html = f'{meta}{head}\n{body}<script>document.body.classList.add("{cls}")</script>{scripts}'
         else:
-            html = f'<!doctype html><html lang="no"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">{meta}<link rel="icon" href="img/favicon.png">{head}</head><body class="{cls}">{body}{scripts}</body></html>'
+            html = f'<!doctype html><html lang="no"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">{meta}<link rel="icon" href="img/favicon.png">{head}</head><body class="{cls}"><a class="skip" href="#main">{L("Hopp til innhold", "Skip to content")}</a>{body}{scripts}</body></html>'
         open(os.path.join(out, name), 'w', encoding='utf-8').write(html)
+    if target == 'dist':
+        base = 'https://kurtsandnes.no/'
+        open(os.path.join(out, 'robots.txt'), 'w').write(f'User-agent: *\nAllow: /\nSitemap: {base}sitemap.xml\n')
+        urls = ''.join(f'<url><loc>{base}{"" if n == "index.html" else n}</loc></url>' for n in sorted(os.listdir(os.path.join(SRC, 'pages'))))
+        open(os.path.join(out, 'sitemap.xml'), 'w').write(f'<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{urls}</urlset>')
     print('built', target)
 
 if __name__ == '__main__':

@@ -455,3 +455,9 @@ footer{padding-block:60px 40px;background:#070d17;color:var(--frost);font-size:.
 .summer-li .zoom img{transition:filter .3s}
 .summer-li .zoom:hover img{filter:brightness(1.1)}
 .summer-li .zi{position:absolute;right:6px;bottom:6px;width:28px;height:28px;display:grid;place-items:center;background:rgba(8,14,26,.75);color:var(--snow);font-size:15px;border-radius:2px}
+/* kvalitetsrunde */
+.skip{position:fixed;left:12px;top:-60px;z-index:100;background:var(--beacon);color:#111;padding:10px 14px;font-weight:600;text-decoration:none;border-radius:2px;transition:top .2s}
+.skip:focus{top:calc(10px + env(safe-area-inset-top,0px))}
+:focus-visible{outline:2px solid var(--beacon);outline-offset:3px}
+.two .sec-head h2{font-size:clamp(2.2rem,4.2vw,4rem);overflow-wrap:anywhere}
+h1,h2{overflow-wrap:break-word;hyphens:manual}
